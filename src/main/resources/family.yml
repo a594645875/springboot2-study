@@ -1,0 +1,19 @@
+family:
+  family-name: "happy family"
+  father:
+    name: zimug
+    # 随机值
+    age: ${random.int[18,100]}
+  mother:
+    alias:
+    - lovely
+    - ailice
+  child:
+    name: zimug
+    # 和父亲的年龄一样
+    age: ${family.father.age}
+    friends:
+    - hobby: football
+      sex:  male
+    - hobby: basketball
+      sex: female
