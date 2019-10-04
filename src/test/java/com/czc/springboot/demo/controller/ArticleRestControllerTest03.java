@@ -51,13 +51,13 @@ public class ArticleRestControllerTest03 {
         Article articleObj = objectMapper.readValue(article, Article.class);
 
         //打桩
-        when(articleRestService.save(articleObj)).thenReturn("ok");
+        when(articleRestService.saveArticle(articleObj)).thenReturn(null);
 
         /**
          * 在测试调用save方法saveResult为ok,但在ArticleRestController中调用的saveResult方法返回为null
          * 但是讲义中两者都为ok,不知道bug在哪?
          */
-        String saveResult = articleRestService.save(articleObj);
+        Article saveResult = articleRestService.saveArticle(articleObj);
 
         MvcResult result = mockMvc.perform(MockMvcRequestBuilders.request(HttpMethod.POST, "/rest/article")
                 .contentType("application/json").content(article))

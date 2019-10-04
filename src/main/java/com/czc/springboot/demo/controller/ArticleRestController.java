@@ -29,7 +29,7 @@ public class ArticleRestController {
     @RequestMapping(value = "/article", method = POST, produces = "application/json")
     public AjaxResponse saveArticle(@RequestBody Article article) {
 
-        String save = articleRestService.save(article);
+        Article save = articleRestService.saveArticle(article);
         log.info("articleRestService.saveArticle：{} ",save);
         log.info("saveArticle：{} ",article);
         return  AjaxResponse.success(article);
