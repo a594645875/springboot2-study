@@ -1,6 +1,6 @@
 package com.czc.springboot.demo.controller;
 
-import com.czc.springboot.demo.model.Article;
+import com.czc.springboot.demo.model.ArticleVO;
 import com.czc.springboot.demo.service.ArticleRestService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
@@ -48,16 +48,16 @@ public class ArticleRestControllerTest03 {
         String article = "{\"id\":1,\"author\":\"zimug\",\"title\":\"手摸手教你开发spring boot\",\"content\":\"c\",\"createTime\":\"\",\"reader\":[{\"name\":\"zimug\",\"age\":18},{\"name\":\"kobe\",\"age\":37}]}";
 
         ObjectMapper objectMapper = new ObjectMapper();
-        Article articleObj = objectMapper.readValue(article, Article.class);
+        ArticleVO articleObj = objectMapper.readValue(article, ArticleVO.class);
 
         //打桩
-        when(articleRestService.save(articleObj)).thenReturn("ok");
+        when(articleRestService.saveArticle(articleObj)).thenReturn(null);
 
         /**
          * 在测试调用save方法saveResult为ok,但在ArticleRestController中调用的saveResult方法返回为null
          * 但是讲义中两者都为ok,不知道bug在哪?
          */
-        String saveResult = articleRestService.save(articleObj);
+        ArticleVO saveResult = articleRestService.saveArticle(articleObj);
 
         MvcResult result = mockMvc.perform(MockMvcRequestBuilders.request(HttpMethod.POST, "/rest/article")
                 .contentType("application/json").content(article))

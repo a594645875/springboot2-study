@@ -1,7 +1,7 @@
 package com.czc.springboot.demo.controller;
 
 import com.czc.springboot.demo.common.AjaxResponse;
-import com.czc.springboot.demo.model.Article;
+import com.czc.springboot.demo.model.ArticleVO;
 import com.czc.springboot.demo.service.ArticleRestService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,10 +27,10 @@ public class ArticleRestController {
     ArticleRestService articleRestService;
 
     @RequestMapping(value = "/article", method = POST, produces = "application/json")
-    public AjaxResponse saveArticle(@RequestBody Article article) {
+    public AjaxResponse saveArticle(@RequestBody ArticleVO article) {
 
-        String save = articleRestService.save(article);
-        log.info("articleRestService.saveArticle：{} ",save);
+        ArticleVO articleVO = articleRestService.saveArticle(article);
+        log.info("articleRestService.saveArticle：{} ",articleVO);
         log.info("saveArticle：{} ",article);
         return  AjaxResponse.success(article);
     }
@@ -43,7 +43,7 @@ public class ArticleRestController {
     }
 
     @RequestMapping(value = "/article/{id}", method = PUT, produces = "application/json")
-    public AjaxResponse updateArticle(@PathVariable Long id, @RequestBody Article article) {
+    public AjaxResponse updateArticle(@PathVariable Long id, @RequestBody ArticleVO article) {
         article.setId(id);
 
         log.info("updateArticle：{}",article);
@@ -53,7 +53,7 @@ public class ArticleRestController {
     @RequestMapping(value = "/article/{id}", method = GET, produces = "application/json")
     public AjaxResponse getArticle(@PathVariable Long id) {
 
-        Article article1 = Article.builder().id(1L).author("zimug").content("spring boot 2.深入浅出").createTime(new Date()).title("t1").build();
+        ArticleVO article1 = ArticleVO.builder().id(1L).author("zimug").content("spring boot 2.深入浅出").createTime(new Date()).title("t1").build();
         return AjaxResponse.success(article1);
     }
 }

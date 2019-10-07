@@ -1,19 +1,25 @@
 package com.czc.springboot.demo.service;
 
-import com.czc.springboot.demo.model.Article;
+import com.czc.springboot.demo.model.ArticleVO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * @author czc
  * @date 2019/9/28 17:09
  */
-@Slf4j
-@Service
-public class ArticleRestService {
+public interface ArticleRestService {
 
-    public String save(Article article) {
-        log.info("saveArticle：{}",article);
-        return "save method";
-    }
+
+    ArticleVO saveArticle(ArticleVO article);
+
+    void deleteArticle(Long id);
+
+    void updateArticle(ArticleVO article);
+
+    ArticleVO getArticle(Long id);
+
+    List<ArticleVO> getAll();
 }
