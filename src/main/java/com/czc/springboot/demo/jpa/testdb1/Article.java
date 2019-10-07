@@ -1,4 +1,4 @@
-package com.czc.springboot.demo.model;
+package com.czc.springboot.demo.jpa.testdb1;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

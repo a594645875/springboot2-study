@@ -1,7 +1,7 @@
 package com.czc.springboot.demo.service.impl;
 
-import com.czc.springboot.demo.dao.ArticleRepository;
-import com.czc.springboot.demo.model.Article;
+import com.czc.springboot.demo.jpa.testdb1.ArticleRepository;
+import com.czc.springboot.demo.jpa.testdb1.Article;
 import com.czc.springboot.demo.model.ArticleVO;
 import com.czc.springboot.demo.service.ArticleRestService;
 import com.czc.springboot.demo.utils.DozerUtils;

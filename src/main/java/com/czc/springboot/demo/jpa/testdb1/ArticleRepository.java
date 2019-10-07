@@ -1,6 +1,5 @@
-package com.czc.springboot.demo.dao;
+package com.czc.springboot.demo.jpa.testdb1;
 
-import com.czc.springboot.demo.model.Article;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ArticleRepository extends JpaRepository<Article,Long> {
