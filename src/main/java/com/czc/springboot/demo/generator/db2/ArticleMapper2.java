@@ -1,11 +1,12 @@
-package com.czc.springboot.demo.generator;
+package com.czc.springboot.demo.generator.db2;
 
 import com.czc.springboot.demo.model.Article;
 import com.czc.springboot.demo.model.ArticleExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
-public interface ArticleDao {
+import java.util.List;
+
+public interface ArticleMapper2 {
     long countByExample(ArticleExample example);
 
     int deleteByExample(ArticleExample example);

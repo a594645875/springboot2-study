@@ -1,8 +1,9 @@
-package com.czc.springboot.demo.generator;
-
-import java.util.List;
+package com.czc.springboot.demo.generator.db1;
 
 import com.czc.springboot.demo.model.Article;
+import java.util.List;
+
+import com.czc.springboot.demo.model.ArticleExample;
 import org.apache.ibatis.annotations.Param;
 
 public interface ArticleMapper {

@@ -1,12 +1,14 @@
 package com.czc.springboot.demo.service.impl;
 
-import com.czc.springboot.demo.generator.ArticleMapper;
+import com.czc.springboot.demo.generator.db1.ArticleMapper;
+import com.czc.springboot.demo.generator.db2.ArticleMapper2;
 import com.czc.springboot.demo.model.Article;
 import com.czc.springboot.demo.model.ArticleVO;
 import com.czc.springboot.demo.service.ArticleRestService;
 import com.czc.springboot.demo.utils.DozerUtils;
 import org.dozer.Mapper;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.Date;
@@ -20,13 +22,18 @@ public class ArticleMybatisRestService implements ArticleRestService {
 
     @Resource
     private ArticleMapper articleMapper;
+    @Resource
+    private ArticleMapper2 articleMapper2;
 
 
     @Override
+    @Transactional
     public ArticleVO saveArticle(ArticleVO article) {
         article.setCreateTime(new Date());
         Article articlePO = dozerMapper.map(article,Article.class);
         articleMapper.insert(articlePO);
+        articleMapper2.insert(articlePO);
+//        int a = 2 / 0;
         return article;
     }
 
