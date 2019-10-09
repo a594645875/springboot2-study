@@ -33,7 +33,7 @@ public class ArticleMybatisRestService implements ArticleRestService {
         Article articlePO = dozerMapper.map(article,Article.class);
         articleMapper.insert(articlePO);
         articleMapper2.insert(articlePO);
-        int a = 2 / 0;
+//        int a = 2 / 0;
         return article;
     }
 

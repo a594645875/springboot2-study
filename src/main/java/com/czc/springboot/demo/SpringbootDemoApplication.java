@@ -2,10 +2,11 @@ package com.czc.springboot.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.context.annotation.ImportResource;
 
 @SpringBootApplication
-@ImportResource(locations = {"classpath:beans.xml"})
+@ServletComponentScan
 public class SpringbootDemoApplication {
 
     public static void main(String[] args) {

@@ -57,4 +57,9 @@ public class ArticleRestController {
         Article article1 = Article.builder().id(1).author("zimug").content("spring boot 2.深入浅出").createTime(new Date()).title("t1").build();
         return AjaxResponse.success(article1);
     }
+
+    @RequestMapping(value = "/article", method = GET, produces = "application/json")
+    public AjaxResponse getAll() {
+        return AjaxResponse.success(articleRestService.getAll());
+    }
 }
