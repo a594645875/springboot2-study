@@ -29,5 +29,5 @@ build/
 
 ### VS Code ###
 .vscode/
-tmlog.lck
-tmlog0.log
+*.lck
+*.log
