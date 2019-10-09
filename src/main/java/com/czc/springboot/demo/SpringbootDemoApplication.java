@@ -3,9 +3,10 @@ package com.czc.springboot.demo;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ImportResource;
+import org.springframework.data.mongodb.config.EnableMongoAuditing;
 
 @SpringBootApplication
-@ImportResource(locations = {"classpath:beans.xml"})
+@EnableMongoAuditing
 public class SpringbootDemoApplication {
 
     public static void main(String[] args) {

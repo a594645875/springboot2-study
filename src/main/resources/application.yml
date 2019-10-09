@@ -3,12 +3,6 @@ spring:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8
 
-# 设置盐值（加密解密密钥），我们配置在这里只是为了测试方便
-# 生产环境中，切记不要这样直接进行设置，可通过环境变量、命令行等形式进行设置。
-jasypt:
-  encryptor:
-    password: 123456
-
-# 演示需要加密的值
-sql:
-  password: ENC(3Bn4zZtrCWpVjS1Bwvf2eg==)
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/springboot
