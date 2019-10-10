@@ -30,6 +30,12 @@
             <scope>test</scope>
         </dependency>
 
+        <!--面向切面编程需要依赖的包-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
+
         <!--lombok-->
         <dependency>
             <groupId>org.projectlombok</groupId>
