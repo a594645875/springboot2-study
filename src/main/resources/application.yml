@@ -32,3 +32,8 @@ mybatis:
 logging:
   level:
     com.zimug.bootlaunch: debug
+
+# 方式3listener 需要的配置
+context:
+  listener:
+    classes: com.czc.springboot.demo.config.cuslistener.MyListener3
