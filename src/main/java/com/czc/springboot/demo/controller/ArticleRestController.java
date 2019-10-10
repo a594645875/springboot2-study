@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import javax.validation.Valid;
 import java.util.Date;
 
 import static org.springframework.web.bind.annotation.RequestMethod.*;
@@ -28,7 +29,7 @@ public class ArticleRestController {
     ArticleRestService articleRestService;
 
     @RequestMapping(value = "/article", method = POST, produces = "application/json")
-    public AjaxResponse saveArticle(@RequestBody ArticleVO article) {
+    public AjaxResponse saveArticle(@Valid @RequestBody ArticleVO article) {
 
         ArticleVO save = articleRestService.saveArticle(article);
         log.info("articleRestService.saveArticle：{} ",save);

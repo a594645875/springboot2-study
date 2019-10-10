@@ -8,6 +8,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import java.util.Date;
 import java.util.List;
 
@@ -30,7 +32,8 @@ public class ArticleVO {
     /**
      * 排除属性不做序列化与反序列化
      */
-    @JsonIgnore
+    //@JsonIgnore
+    @Max(10)
     private long id;
 
     /**
