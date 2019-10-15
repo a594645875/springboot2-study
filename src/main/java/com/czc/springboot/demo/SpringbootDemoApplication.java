@@ -7,10 +7,12 @@ import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.ImportResource;
 import org.springframework.scheduling.annotation.EnableAsync;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 @SpringBootApplication
 @ServletComponentScan
 @EnableAsync
+@EnableScheduling
 public class SpringbootDemoApplication {
 
     public static void main(String[] args) {
