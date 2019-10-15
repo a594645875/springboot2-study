@@ -9,11 +9,13 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.ImportResource;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.session.data.redis.config.annotation.web.http.EnableRedisHttpSession;
 
 @SpringBootApplication
 @ServletComponentScan
 @EnableAsync
 @EnableCaching
+@EnableRedisHttpSession(maxInactiveIntervalInSeconds = 30 * 60 * 1000)
 //@EnableScheduling
 public class SpringbootDemoApplication {
 

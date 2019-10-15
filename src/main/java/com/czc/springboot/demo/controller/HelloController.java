@@ -1,7 +1,9 @@
 package com.czc.springboot.demo.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpSession;
+import java.util.UUID;
 
 /**
  * @author czc
@@ -13,5 +15,16 @@ public class HelloController {
     @GetMapping("/hello")
     public String hello() {
         return "hello world! 热部署";
+    }
+
+    @RequestMapping(value="/uid",method = RequestMethod.GET)
+    public @ResponseBody
+    String uid(HttpSession session) {
+        UUID uid = (UUID) session.getAttribute("uid");
+        if (uid == null) {
+            uid = UUID.randomUUID();
+        }
+        session.setAttribute("uid", uid);
+        return session.getId();
     }
 }
