@@ -12,7 +12,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @SpringBootApplication
 @ServletComponentScan
 @EnableAsync
-@EnableScheduling
+//@EnableScheduling
 public class SpringbootDemoApplication {
 
     public static void main(String[] args) {

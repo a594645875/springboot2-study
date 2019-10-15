@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.Date;
 
-@Component
+//@Component
 public class ScheduledJobs {
   
     //表示方法执行完成后5秒再开始执行
