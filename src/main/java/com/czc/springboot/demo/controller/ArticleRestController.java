@@ -5,6 +5,10 @@ import com.czc.springboot.demo.model.Article;
 import com.czc.springboot.demo.model.ArticleVO;
 import com.czc.springboot.demo.service.ArticleRestService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.cache.annotation.Caching;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -37,6 +41,8 @@ public class ArticleRestController {
         return  AjaxResponse.success(article);
     }
 
+    @Caching(evict = {@CacheEvict(cacheNames = "articleList",allEntries = true),
+            @CacheEvict(cacheNames = "article",key = "#id")})
     @RequestMapping(value = "/article/{id}", method = DELETE, produces = "application/json")
     public AjaxResponse deleteArticle(@PathVariable Long id) {
 
@@ -44,6 +50,8 @@ public class ArticleRestController {
         return AjaxResponse.success(id);
     }
 
+    @Caching(evict = {@CacheEvict(cacheNames = "articleList",allEntries = true)},
+            put={@CachePut(cacheNames = "article",key = "#id")})
     @RequestMapping(value = "/article/{id}", method = PUT, produces = "application/json")
     public AjaxResponse updateArticle(@PathVariable Long id, @RequestBody Article article) {
         article.setId(Math.toIntExact(id));
@@ -52,6 +60,7 @@ public class ArticleRestController {
         return AjaxResponse.success(article);
     }
 
+    @Cacheable(value="article")
     @RequestMapping(value = "/article/{id}", method = GET, produces = "application/json")
     public AjaxResponse getArticle(@PathVariable Long id) {
 
